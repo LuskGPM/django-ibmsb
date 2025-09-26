@@ -6,16 +6,12 @@ django.setup()
 
 from core.models import User, Fatura
 
-def createUser():
-    import datetime
-    
-    data_nasc = datetime.date(2005, 6, 13)
+def createUser(name, email, cpf):
     
     user = User(
-        name='Lucas Melo', 
-        email='teste2@teste.com', 
-        cpf='12345678911', 
-        data_nascimento=data_nasc
+        name=name, 
+        email=email, 
+        cpf=cpf,
         )
     
     fatura = Fatura(
@@ -30,5 +26,5 @@ def createUser():
     
 
 if __name__ == "__main__":
-    createUser()
+    createUser('Maria', 'teste5@teste.com', '44422244455')
     
