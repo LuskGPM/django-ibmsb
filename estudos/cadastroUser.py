@@ -7,7 +7,8 @@ django.setup()
 from core.models import User, Fatura
 
 def createUser():
-    from datetime import datetime
+    import datetime
+    
     data_nasc = datetime.date(2005, 6, 13)
     
     user = User(
