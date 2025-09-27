@@ -8,19 +8,20 @@ from core.models import User, Fatura
 
 import datetime
 
-users = User.objects.filter(ativo = True)
-for user in users:
-    print(user.name, user.email)
-print('------------------')
+user_id = 2
+lucasMelo = User.objects.get(pk = user_id)
+print(lucasMelo.name)
 
-nascimento = datetime.date(2004, 6, 13)
-user = User.objects.filter(data_nascimento__gt=nascimento)
-for u in user:
-    print(u.name, u.data_nascimento)
-print('------------------')
+print('-'*20)
 
-user = User.objects.filter(name__in = [
-    'Lucas', 'Maria', 'Ferreira'
-])
-for u in user:
-    print(u.name, u.email)
+ferreira = User.objects.get(pk = 4)
+print(ferreira.name)
+
+print('-'*20)
+
+try:
+    user_inexistente = User.objects.get(pk = 999)
+    print(user_inexistente.name)
+except User.DoesNotExist:
+    print('Usuario inexistente')
+    
